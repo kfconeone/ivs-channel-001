@@ -4,7 +4,7 @@ onMounted(() => {
     if (IVSPlayer.isPlayerSupported) {
         const player = IVSPlayer.create();
         player.attachHTMLVideoElement(document.getElementById("video-player"));
-        player.load("https://3fc23fa3dfd6.us-east-1.playback.live-video.net/api/video/v1/us-east-1.612025208159.channel.NRAjrwcZ7JaY.m3u8");
+        player.load("https://3fc23fa3dfd6.us-east-1.playback.live-video.net/api/video/v1/us-east-1.612025208159.channel.uEgiPSFQdImX.m3u8");
         player.play();
     }
 });
