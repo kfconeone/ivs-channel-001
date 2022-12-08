@@ -1,16 +1,43 @@
-<script setup>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+
+
+
 const date = ref(Date);
+var player;
 onMounted(() => {
     if (IVSPlayer.isPlayerSupported) {
-        const player = IVSPlayer.create();
+        player = IVSPlayer.create();
         player.attachHTMLVideoElement(document.getElementById("video-player"));
         player.load("https://3fc23fa3dfd6.us-east-1.playback.live-video.net/api/video/v1/us-east-1.612025208159.channel.uEgiPSFQdImX.m3u8");
         player.play();
+
+        window.playIvsPlayer = onPlay;
+        window.pauseIvsPlayer = onPaused;
+        // player.
     }
 });
+
+function onPaused() {
+    console.log("paused");
+    player.pause();
+}
+
+
+function onPlay() {
+    console.log("paused");
+    player.play();
+}
+
+
+function test() {
+    console.log("test");
+    window.pauseIvsPlayer();
+}
 </script>
 <template>
     <div>
+
         <Head>
             <Title>ivs-testing</Title>
             <Script src="https://player.live-video.net/1.11.0/amazon-ivs-player.min.js"></Script>
@@ -26,4 +53,5 @@ body {
     margin: 0;
 }
 </style>
->
+
+
