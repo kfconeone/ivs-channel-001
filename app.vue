@@ -24,7 +24,7 @@ async function reload() {
         console.log("reloading");
         player.pause();
         reload();
-    }, 10000);
+    }, 600000);
 
 }
 </script>
